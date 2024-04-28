@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>动漫人物属性生成器</title>
+        <style>
+            #character-info {
+                border: 1px solid #000;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            button {
+                padding: 5px 10px;
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <h2>动漫人物属性生成器</h2>
+        <button id="generate-btn">生成人物属性</button>
+        <div id="character-info">
+            <p>点击按钮生成动漫人物属性。</p>
+        </div>
+    
+        <script>
+            // 动漫人物的数据库
+            const characters = [
+                { name: "孙悟空", gender: "男", anime: "龙珠", skill: "气功波" },
+                { name: "漩涡鸣人", gender: "男", anime: "火影忍者", skill: "影分身之术" },
+                // 更多人物...
+            ];
+    
+            // 生成随机动漫人物属性的函数
+            function generateCharacter() {
+                // 获取随机索引
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                // 获取随机人物
+                const character = characters[randomIndex];
+                // 获取显示信息的元素
+                const infoElement = document.getElementById('character-info');
+                // 更新元素内容
+                infoElement.innerHTML = `
+                    <p>姓名: ${character.name}</p>
+                    <p>性别: ${character.gender}</p>
+                    <p>出自: ${character.anime}</p>
+                    <p>技能: ${character.skill}</p>
+                `;
+            }
+    
+            // 为按钮添加点击事件监听器
+            document.getElementById('generate-btn').addEventListener('click', generateCharacter);
+        </script>
+</body>
+</html>
