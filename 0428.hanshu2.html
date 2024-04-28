@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>历史人物信息展示</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        #info {
+            margin-top: 20px;
+            border: 1px solid #000;
+            padding: 10px;
+            display: none; /* 初始不显示信息 */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>历史人物信息展示</h2>
+    <button id="showInfo">显示历史人物信息</button>
+    <div id="info">
+        <h3>人物姓名: <span id="name"></span></h3>
+        <p>生活年代: <span id="era"></span></p>
+        <p>主要成就: <span id="achievement"></span></p>
+    </div>
+
+    <script>
+        // 创建一个历史人物对象
+        const historian = {
+            name: "司马迁",
+            era: "西汉",
+            achievement: "著有《史记》"
+        };
+
+        // 显示历史人物信息的函数
+        function showHistorianInfo() {
+            const infoDiv = document.getElementById('info');
+            const nameSpan = document.getElementById('name');
+            const eraSpan = document.getElementById('era');
+            const achievementSpan = document.getElementById('achievement');
+
+            // 将对象的属性显示到页面上
+            nameSpan.textContent = historian.name;
+            eraSpan.textContent = historian.era;
+            achievementSpan.textContent = historian.achievement;
+
+            // 显示信息区域
+            infoDiv.style.display = 'block';
+        }
+
+        // 为按钮添加点击事件监听器
+        document.getElementById('showInfo').addEventListener('click', showHistorianInfo);
+    </script>
+
+</body>
+</html>
